@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace DatingApp.API.Models
 {
     public class User
@@ -5,6 +7,6 @@ namespace DatingApp.API.Models
         public int Id { get; set; }
         public string Username { get; set; }
         public byte[] PasswordHash { get; set; }
-        public byte[] PasswordHalt { get; set; }
+        public byte[] PasswordSalt { get; set; }
     }
 }

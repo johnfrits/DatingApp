@@ -21,15 +21,15 @@ namespace DatingApp.API.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<byte[]>("PasswordHalt");
-
                     b.Property<byte[]>("PasswordHash");
+
+                    b.Property<byte[]>("PasswordSalt");
 
                     b.Property<string>("Username");
 
                     b.HasKey("Id");
 
-                    b.ToTable("User");
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("DatingApp.API.Models.Value", b =>
