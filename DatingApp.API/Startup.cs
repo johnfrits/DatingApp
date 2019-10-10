@@ -11,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
+using DatingApp.API.Helpers;
 
 namespace DatingApp.API
 {
@@ -63,7 +64,11 @@ namespace DatingApp.API
                         var error = context.Features.Get<IExceptionHandlerFeature>();
 
                         if (error != null)
+                        {
+                            context.Response.AddApplicationError(error.Error.Message);
                             await context.Response.WriteAsync(error.Error.Message);
+                        }
+
                     });
                 });
             }
